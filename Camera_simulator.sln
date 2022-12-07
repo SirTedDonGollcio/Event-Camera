@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Camera_simulator", "Camera_simulator.vcxproj", "{F3031B8C-CB40-4F5D-889E-96798F6476CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Debug|x64.ActiveCfg = Debug|x64
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Debug|x64.Build.0 = Debug|x64
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Debug|x86.Build.0 = Debug|Win32
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Release|x64.ActiveCfg = Release|x64
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Release|x64.Build.0 = Release|x64
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Release|x86.ActiveCfg = Release|Win32
+		{F3031B8C-CB40-4F5D-889E-96798F6476CD}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C0E74D9-32D1-41B8-9C2D-61BAFCBE8E27}
+	EndGlobalSection
+EndGlobal
