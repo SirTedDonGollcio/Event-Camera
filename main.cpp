@@ -33,12 +33,7 @@ int main(int, char**)
 
   
     absdiff(frame1, BlackScreen, difference_init);
-    //threshold(difference_init, difference_init2, 5, 255, cv::THRESH_TOZERO);
-    Mat gray;
-    cvtColor(difference_init, gray, COLOR_BGR2GRAY);
-
-    //Prog pierwszej klatki z jakim porownuje sie do czarnego ekranu
-    threshold(gray, difference_init2, 5, 255, cv::THRESH_TOZERO);
+    threshold(difference_init, difference_init2, 5, 255, cv::THRESH_TOZERO);
 
 
 
@@ -50,17 +45,14 @@ int main(int, char**)
         cap.read(frame1);
         waitKey(1);
 
-        cvtColor(frame1, frame1_g, COLOR_BGR2GRAY);
-        cvtColor(frame2, frame2_g, COLOR_BGR2GRAY);
+        absdiff(frame2, frame1, difference);
 
-        absdiff(frame1_g, frame2_g, difference);
         //Prog ponizej ktorego usuwa roznice znalezione pomiedzy kolejnymi klatkami
         threshold(difference, difference2, 5, 255, cv::THRESH_TOZERO);
         
-        sum1 = difference_init2 + difference2;
-
-        //imshow("Live", frame1_g);
-        imshow("Live2", sum1);
+        sum1 = frame2 + difference2;
+        imshow("Just difference", difference2);
+        imshow("Frame + difference",sum1);
 
         
 
