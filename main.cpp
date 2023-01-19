@@ -40,7 +40,7 @@ class EventCamera
             int ttt1, ttt2, ttt3;
 
 
-            int threshold_value = 15; //Value of the threshold under which the differences between each frames will be negleted
+            int threshold_value = 5; //Value of the threshold under which the differences between each frames will be negleted
 
 
             for (int i = 0; i < frame1_t.cols; i++)
@@ -117,11 +117,11 @@ int main(int, char**)
 
     EventCamera ec;
     ec.camera = &cap;
-    ec.frame1_t = frame1;
-    ec.frame2_t = BlackScreen;
+    ec.frame1_t = BlackScreen.clone(); 
+    ec.frame2_t = BlackScreen.clone();
 
-    sum1,sum2 = BlackScreen;
-    difference = BlackScreen;
+    sum1,sum2 = BlackScreen.clone();
+    difference = BlackScreen.clone();
 
     vector<int**> mats;
     for (;;)
