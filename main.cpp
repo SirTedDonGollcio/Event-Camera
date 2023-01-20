@@ -40,7 +40,7 @@ class EventCamera
             int ttt1, ttt2, ttt3;
 
 
-            int threshold_value = 5; //Value of the threshold under which the differences between each frames will be negleted
+            int threshold_value = 10; //Value of the threshold under which the differences between each frames will be negleted
 
 
             for (int i = 0; i < frame1_t.cols; i++)
@@ -138,6 +138,10 @@ int main(int, char**)
                 {
                     sum2.at<Vec3b>(j, i)[0] = 255;
                 }
+                else if ((int)sum1.at<Vec3b>(j, i)[0] + (int)mats[0][j][i] < 0)
+                {
+                    sum2.at<Vec3b>(j, i)[0] = 0;
+                }
                 else
                 {
                     sum2.at<Vec3b>(j, i)[0] = (int)sum1.at<Vec3b>(j, i)[0] + (int)mats[0][j][i];
@@ -147,6 +151,10 @@ int main(int, char**)
                 {
                     sum2.at<Vec3b>(j, i)[1] = 255;
                 }
+                else if ((int)sum1.at<Vec3b>(j, i)[1] + (int)mats[1][j][i] < 0)
+                {
+                    sum2.at<Vec3b>(j, i)[1] = 0;
+                }
                 else
                 {
                     sum2.at<Vec3b>(j, i)[1] = (int)sum1.at<Vec3b>(j, i)[1] + (int)mats[1][j][i];
@@ -155,6 +163,10 @@ int main(int, char**)
                 if ((int)sum1.at<Vec3b>(j, i)[2] + (int)mats[2][j][i] > 255)
                 {
                     sum2.at<Vec3b>(j, i)[2] = 255;
+                }
+                else if ((int)sum1.at<Vec3b>(j, i)[2] + (int)mats[2][j][i] < 0)
+                {
+                    sum2.at<Vec3b>(j, i)[2] = 0;
                 }
                 else
                 {
@@ -166,7 +178,8 @@ int main(int, char**)
                 difference.at<Vec3b>(j, i)[2] = (int)mats[2][j][i];
             }
         }
-
+        Mat blur;
+        //cv::GaussianBlur(sum2, blur, Size(15, 15),0);
 
         imshow("Just difference", sum2);
         imshow("Frame + difference", difference);
